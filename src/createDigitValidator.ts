@@ -1,5 +1,7 @@
-export const createDigitValidator =
-  (base: number) =>
-  (char: string): boolean => {
-    throw new Error(`Not implemented (base ${base}, char ${char})`);
-  };
+export const DIGITS = '0123456789abcdef';
+
+export const createDigitValidator = (base: number) => {
+  const alphabet = DIGITS.slice(0, base).split('');
+
+  return (char: string): boolean => alphabet.includes(char.toLowerCase());
+};
