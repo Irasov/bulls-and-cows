@@ -4,5 +4,11 @@ export type GuessResult = {
 };
 
 export const evaluateGuess = (secret: string, guess: string): GuessResult => {
-  throw new Error(`Not implemented (${secret}, ${guess})`);
+  const secretChars = secret.toLowerCase().split('');
+  const guessChars = guess.toLowerCase().split('');
+
+  const bulls = guessChars.filter((char, i) => char === secretChars[i]).length;
+  const common = guessChars.filter((char) => secretChars.includes(char)).length;
+
+  return { bulls, cows: common - bulls };
 };
