@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "vitest run --passWithNoTests",
-    "prepare": "husky"
+    "prepare": "husky",
+    "dev": "tsc --watch"
   },
   "lint-staged": {
     "*.ts": [
