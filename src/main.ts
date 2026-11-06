@@ -1,3 +1,6 @@
+import { startApp } from './app.js';
 import { el } from './dom.js';
 
-document.body.prepend(el('h1', { textContent: 'Bulls and Cows' }));
+const root = el('main');
+document.body.append(root);
+startApp(root);
