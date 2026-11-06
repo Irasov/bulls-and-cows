@@ -1,12 +1,15 @@
 import { el } from '../dom.js';
 import { getAvailableLengths, type Settings } from '../game.js';
 import { ALL_LENGTHS, BASES, resolveLength } from '../settings.js';
+import type { ScoreBoard } from '../scores.js';
+import { renderScoreTable } from './scoreTable.js';
 
 const valueOf = (event: Event): number =>
   Number((event.currentTarget as HTMLSelectElement).value);
 
 export const renderSettingsScreen = (
   settings: Settings,
+  scores: ScoreBoard,
   onChange: (settings: Settings) => void,
   onStart: (settings: Settings) => void,
 ): HTMLElement => {
@@ -59,5 +62,6 @@ export const renderSettingsScreen = (
       textContent: 'Старт',
       onclick: () => onStart(settings),
     }),
+    renderScoreTable(scores, settings),
   );
 };
