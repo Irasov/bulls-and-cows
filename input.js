@@ -1,11 +1,5 @@
 import { createDigitValidator } from './createDigitValidator.js';
-
-export const sanitizeInput = (
-  raw: string,
-  base: number,
-  length: number,
-): string =>
-  raw
+export const sanitizeInput = (raw, base, length) => raw
     .toLowerCase()
     .split('')
     .filter(createDigitValidator(base))
